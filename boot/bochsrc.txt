@@ -1,0 +1,17 @@
+megs:            32
+display_library: sdl2
+
+romimage:        file=/usr/share/bochs/BIOS-bochs-latest
+vgaromimage:     file=/usr/share/bochs/VGABIOS-lgpl-latest.bin
+
+vga: extension=vbe, update_freq=10, realtime=1
+pci: enabled=1, chipset=i440fx, slot1=pcivga
+
+ata0: enabled=1, ioaddr1=0x1f0, ioaddr2=0x3f0, irq=14
+ata0-master: type=disk, path=build/disk.img, mode=flat, cylinders=0, heads=0, spt=0, model="Generic 1234", biosdetect=auto, translation=auto
+boot: c
+
+magic_break:     enabled=1
+
+clock:           sync=realtime
+cpu:             count=1, ips=30000000
